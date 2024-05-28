@@ -11,16 +11,16 @@ const port = 3306; // Adjust port number as needed
 
 // Database credentials
 const pool = mysql.createPool({
-  host: 'bjlxspo3d6b0hhfkgp6x-mysql.services.clever-cloud.com',
-  user: 'uxsp9fefzyts0boq',
-  password: 'b39ezWJUdmAE3RqCVCce',
-  database: 'bjlxspo3d6b0hhfkgp6x'
+  host: 'b8xmx91gyizzdykuvdio-mysql.services.clever-cloud.com',
+  user: 'urxydugu9m78t07y',
+  password: 'tsaW3kVsy5mDHz5y11LV',
+  database: 'b8xmx91gyizzdykuvdio'
 });
 // Middleware to verify token
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
   if (!token) return res.status(401).send('Unauthorized access: Token missing');
-  jwt.verify(token.replace('Bearer ', ''), 'chriss', (err, decoded) => {
+  jwt.verify(token.replace('Bearer ', ''), 'butoto', (err, decoded) => {
     if (err) {
       console.error(err);
       return res.status(403).send('Unauthorized access: Invalid or expired token');
@@ -48,7 +48,7 @@ app.post('/login', async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ id: user.id }, 'chriss', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id }, 'butoto', { expiresIn: '1h' });
 
     // Send the token as response
     res.json({ token });
